@@ -37,10 +37,11 @@ const app = createApp({
                     console.log(response);
                     this.products = response.data.products;
                     this.page = response.data.pagination;
-                    console.log(response.data.pagination);
+                    // console.log(response.data.pagination);
                 })
                 .catch((error) => {
-                    console.dir(error);
+                    // console.dir(error);
+                    alert(error.data.message);
                     // // 轉址(轉跳到指定頁面)
                     // window.location = './login.html';
                 });
@@ -57,7 +58,7 @@ const app = createApp({
                 this.tempProduct = {
                     imagesUrl: [],
                 };
-                console.log(this.tempProduct.imagesUrl);
+                // console.log(this.tempProduct.imagesUrl);
             } else if (status === 'edit') {
                 productModal.show();
                 // 此筆資料不是新增的
@@ -90,14 +91,15 @@ const app = createApp({
             // 產品API資料都放在data物件裡面，所以要寫{ data: this.tempProduct }
             axios[method](addProductsUrl, { data: this.tempProduct })
                 .then(response => {
-                    console.log(response.data);
+                    // console.log(response.data);
                     // 新增/編輯完產品，再跑一次函式getProducts()，重新渲染畫面
                     this.getProducts();
                     // 新增/編輯完產品關閉modal
                     productModal.hide();
                 })
                 .catch(error => {
-                    console.dir(error);
+                    // console.dir(error);
+                    alert(error.data.message);
                 });
         },
         // 刪除產品
@@ -105,14 +107,15 @@ const app = createApp({
             const delProductsUrl = `${site}api/${api_path}/admin/product/${this.tempProduct.id}`;
             axios.delete(delProductsUrl)
                 .then(response => {
-                    console.log(response.data);
+                    // console.log(response.data);
                     // 刪除完產品，再跑一次函式getProducts()，重新渲染畫面
                     this.getProducts();
                     // 刪除完產品關閉modal
                     delProductModal.hide();
                 })
                 .catch(error => {
-                    console.dir(error);
+                    // console.dir(error);
+                    alert(error.data.message);
                 });
         },
     },
