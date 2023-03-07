@@ -153,8 +153,8 @@ const app = createApp({
 
 // 開頭用const app = Vue.createApp({})寫法，才能元件寫在全域上
 app.component('product-modal', {
-    // 把data中屬性tempProduct、methods的updateProduct與deleteProduct事件。均透過props把父層資料傳到子層元件內
-    props:['tempProduct','updateProduct','deleteProduct'],
+    // 把data中屬性tempProduct、methods的updateProduct與deleteProduct、isNew事件。均透過props把父層資料傳到子層元件內
+    props:['tempProduct','updateProduct','deleteProduct','isNew'],
     template: `#product-modal-tempate`,
 });
 

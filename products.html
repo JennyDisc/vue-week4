@@ -80,9 +80,9 @@
     <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
       aria-hidden="true">
       <!-- modal元件 -->
-      <!-- props寫法。modal元件裡樣板有用到tempProduct、updateProduct、deleteProduct，所以待會js檔內該元件的props內也要寫到這些屬性 -->
+      <!-- props寫法。modal元件裡樣板有用到tempProduct、updateProduct、deleteProduct、isNew，所以待會js檔內該元件的props內也要寫到這些屬性 -->
       <product-modal :temp-product="tempProduct" :update-product="updateProduct"
-        :delete-product="deleteProduct"></product-modal>
+        :delete-product="deleteProduct" :is-new="isNew"></product-modal>
     </div>
     <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
       aria-labelledby="delProductModalLabel" aria-hidden="true">
@@ -90,9 +90,7 @@
         <div class="modal-content border-0">
           <div class="modal-header bg-danger text-white">
             <h5 id="delProductModalLabel" class="modal-title">
-              <!-- <span>刪除產品</span> -->
-              <!-- 彈跳視窗名稱，顯示當前執行作業的名稱 -->
-              <span>{{ isNew ? '新增產品' : '編輯產品' }}</span>
+              <span>刪除產品</span>
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
@@ -120,7 +118,13 @@
       <div class="modal-content border-0">
         <div class="modal-header bg-dark text-white">
           <h5 id="productModalLabel" class="modal-title">
-            <span>新增產品</span>
+            <!-- <span>新增產品</span> -->
+            <!-- 彈跳視窗名稱，顯示當前執行作業的名稱 -->
+            <!--  第一種寫法：v-if v-else  -->
+            <!-- <span v-if="isNew">新增產品</span>
+            <span v-else>編輯產品</span> -->
+            <!--  第二種寫法：三元運算子  -->
+            <span>{{ isNew ? '新增產品' : '編輯產品' }}</span>
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
