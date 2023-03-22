@@ -1,7 +1,7 @@
 // 載入vue模組(如createApp)
 import { createApp } from 'https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.45/vue.esm-browser.min.js';
 
-import pagination from './pagination.js';
+import Pagination from './pagination.js';
 
 // 路由(所有API網址的開頭)
 const site = 'https://vue3-course-api.hexschool.io/v2/';
@@ -132,7 +132,7 @@ const app = createApp({
         },
     },
     components: {
-        pagination,
+        Pagination,
     },
     mounted() {
         // 當cookie有儲存資料時，就能從cookie取出token
